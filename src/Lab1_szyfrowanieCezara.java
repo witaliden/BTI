@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 
-public class lab1_szyfrowanieCezara {
+public class Lab1_szyfrowanieCezara {
     private static final char LETTER_A = 'a';
     private static final char LETTER_Z = 'z';
     private static final int ALPHABET_SIZE = LETTER_Z - LETTER_A + 1;

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class lab2_vigenere {
+public class Lab2_vigenere {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
