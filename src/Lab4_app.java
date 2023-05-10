@@ -48,12 +48,7 @@ public class Lab4_app {
 
         // create cipher key table
         for (int i = 0, idx = 0; i < encryptKey.length(); i++) {
-            char c = cleanKey.charAt(i);
-            if(positions[c - 'A'] == null){
-                charTable[idx / 5][idx % 5] = c;
-                positions[c - 'A'] = new Point(idx % 5, idx / 5);
-                idx++;
-            }
+            idx = Lab4_playfair.getJ(cleanKey, i, idx, positions, charTable);
             for (int j = 0; j < 5; j++)
                 charTable[i][j] = cleanKey.charAt(idx++);
         }

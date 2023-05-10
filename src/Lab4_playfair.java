@@ -9,7 +9,7 @@ public class Lab4_playfair {
         System.out.println("Szyfrowanie metodą Playfair");
 
         Scanner sc = new Scanner(System.in);
-        String encryptKey = userInteraction("Podaj klucz (min 1 literę): ", sc, 1);
+        String encryptKey = userInteraction("Podaj klucz (min 4 litery): ", sc, 4);
         String message = userInteraction("Podaj wiadomość do zaszyfrowania: ", sc, 1);
         String replaceJtoI = userInteraction("Zamienić J na I? t/n: ", sc, 1);
 
@@ -45,13 +45,18 @@ public class Lab4_playfair {
 
         int len = s.length();
         for (int i = 0, j = 0; i < len; i++) {
-            char c = s.charAt(i);
-            if (positions[c - 'A'] == null) {
-                charTable[j / 5][j % 5] = c;
-                positions[c - 'A'] = new Point(j % 5, j / 5);
-                j++;
-            }
+            j = getJ(s, i, j, positions, charTable);
         }
+    }
+
+    static int getJ(String s, int i, int j, Point[] positions, char[][] charTable) {
+        char c = s.charAt(i);
+        if (positions[c - 'A'] == null) {
+            charTable[j / 5][j % 5] = c;
+            positions[c - 'A'] = new Point(j % 5, j / 5);
+            j++;
+        }
+        return j;
     }
 
     private static String encode(String s) {
